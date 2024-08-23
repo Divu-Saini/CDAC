@@ -1,0 +1,1554 @@
+Snippet 1: 
+
+public class InfiniteForLoop { 
+ public static void main(String[] args) { 
+ for (int i = 0; i < 10; i--) { 
+ System.out.println(i); 
+ } 
+ } 
+} 
+
+// Error to investigate: Why does this loop run infinitely? How should the loop control variable be adjusted? 
+
+Bcz the condition is not getting false as there is decrement in the value of i after each iteration which is always give the value of i < 10.
+The i should be incremented to run this code precisely.
+
+
+
+
+
+
+Snippet 2: 
+
+public class IncorrectWhileCondition { 
+ public static void main(String[] args) { 
+ int count = 5; 
+ while (count = 0) { 
+ System.out.println(count); 
+ count--; 
+ } 
+ } 
+} 
+
+// Error to investigate: Why does the loop not execute as expected? What is the issue with the condition in the 
+`while` loop? 
+
+The condition is not correct as the while loop does not support the 0 , 1 Boolean values. It takes true or false only.
+If we write true instead of count = 0, it becomes an infinite loop.
+
+
+
+
+Snippet 3: 
+
+public class DoWhileIncorrectCondition { 
+ public static void main(String[] args) { 
+ int num = 0; 
+ do { 
+ System.out.println(num); 
+ num++; 
+ } while (num > 0); 
+ } 
+} 
+
+// Error to investigate: Why does the loop only execute once? What is wrong with the loop condition in the `dowhile` loop? 
+
+The loop didn't execute once it is an infinite loop bcz the condition is always true as num increases.
+
+
+
+
+
+
+
+Snippet 4: 
+
+public class OffByOneErrorForLoop { 
+ public static void main(String[] args) { 
+ for (int i = 1; i <= 10; i++) { 
+ System.out.println(i); 
+ } 
+ // Expected: 10 iterations with numbers 1 to 10 
+ // Actual: Prints numbers 1 to 10, but the task expected only 1 to 9 
+ } 
+} 
+// Error to investigate: What is the issue with the loop boundaries? How should the loop be adjusted to meet the 
+expected output? 
+
+It gives the output 1 to 10,due to the condition i <= 10 if u expected 1 to 9 or want to print 1 to 9 u have to write condition as i < 10.
+
+
+
+
+
+Snippet 5: 
+
+public class WrongInitializationForLoop { 
+ public static void main(String[] args) { 
+ for (int i = 10; i >= 0; i++) { 
+ System.out.println(i); 
+ } 
+ } 
+} 
+// Error to investigate: Why does this loop not print numbers in the expected order? What is the problem with the 
+initialization and update statements in the `for` loop? 
+
+It is an infinite loop starting from 10 and keep going upto infinity bcz the condition get always true as all the values of i after increament is greater then zero.
+initialize i = 0 and condition should bs i <= 10.
+
+
+
+
+
+Snippet 6: 
+
+public class MisplacedForLoopBody { 
+ public static void main(String[] args) { 
+ for (int i = 0; i < 5; i++) 
+ System.out.println(i); 
+ System.out.println("Done"); 
+ } 
+} 
+
+// Error to investigate: Why does "Done" print only once, outside the loop? How should the loop body be enclosed to include all statements within the loop? 
+
+It is bcz the loop is running only to the first SOP Or we can say that the 2nd SOP is out of the loop. If u want to print done in loop u have to enclose it with the loop by using {}.
+
+
+
+
+
+Snippet 7: 
+
+public class UninitializedWhileLoop { 
+ public static void main(String[] args) { 
+ int count; 
+ while (count < 10) { 
+ System.out.println(count); 
+ count++; 
+ } 
+ } 
+} 
+// Error to investigate: Why does this code produce a compilation error? What needs to be done to initialize the loop variable properly?
+
+We have to initialize the count  = 0 by which the compiler know what is the initial value of the count or from where it has to start.
+
+
+
+
+
+ 
+Snippet 8: 
+
+public class OffByOneDoWhileLoop { 
+ public static void main(String[] args) { 
+ int num = 1; 
+ do { 
+ System.out.println(num); 
+ num--; 
+ } while (num > 0); 
+ } 
+} 
+
+// Error to investigate: Why does this loop print unexpected numbers? What adjustments are needed to print the numbers from 1 to 5? 
+
+It is bcz the num is decreased to 0 after the SOP statement and the condition becomes become false as 0 > 0 . So it only gives 1 as output.
+To print numbers 1 to 5 it should be written as :
+
+public class OffByOneDoWhileLoop { 
+ public static void main(String[] args) { 
+ int num = 1; 
+ do { 
+ System.out.println(num); 
+ num++; 
+ } while (num > 6); 
+ } 
+} 
+
+
+
+
+
+
+Snippet 9: 
+
+public class InfiniteForLoopUpdate { 
+ public static void main(String[] args) { 
+ for (int i = 0; i < 5; i += 2) { 
+ System.out.println(i); 
+ } 
+ } 
+} 
+
+// Error to investigate: Why does the loop print unexpected results or run infinitely? How should the loop update 
+expression be corrected?
+
+Loop is running right as  i = 0 it checks condition then print 0 after that i is increamented as i = i + 2 which means now i is 0 + 2 = 2 then it checks the condition 2 < 5 then print 2 and hence
+the output in the end is 0 2 4.
+
+
+
+
+ 
+Snippet 10: 
+
+public class IncorrectWhileLoopControl { 
+ public static void main(String[] args) { 
+ int num = 10; 
+ while (num = 10) { 
+ System.out.println(num); 
+ num--; 
+ } 
+ } 
+} 
+
+// Error to investigate: Why does the loop execute indefinitely? What is wrong with the loop condition? 
+
+After running this code the error  occur is bcz of single = sign in the while condition it should be while(num == 10) then it will run and gives output as 10.
+
+
+
+
+
+
+
+
+Snippet 11: 
+
+public class IncorrectLoopUpdate { 
+ public static void main(String[] args) { 
+ int i = 0; 
+ while (i < 5) { 
+ System.out.println(i); 
+ i += 2; 
+// Error: This may cause unexpected results in output 
+ } 
+ } 
+} 
+
+// Error to investigate: What will be the output of this loop? How should the loop variable be updated to achieve the 
+desired result?
+
+Loop is running right as  i = 0 it checks condition then print 0 after that i is increamented as i = i + 2 which means now i is 0 + 2 = 2 then it checks the condition 2 < 5 then print 2 and hence
+the output in the end is 0 2 4.
+
+
+
+
+
+ 
+Snippet 12: 
+
+public class LoopVariableScope { 
+ public static void main(String[] args) { 
+ for (int i = 0; i < 5; i++) { 
+ int x = i * 2; 
+ } 
+ System.out.println(x); // Error: 'x' is not accessible here 
+ } 
+} 
+
+// Error to investigate: Why does the variable 'x' cause a compilation error? How does scope
+
+It is bcz the SOP line is outside the for loop.It should be in the for loop's {}. And when it is done the x can be easily accessible.
+
+
+
+
+
+SECTION 2: Guess the Output
+
+
+
+
+
+
+
+
+Snippet 1: 
+
+public class NestedLoopOutput { 
+ public static void main(String[] args) { 
+ for (int i = 1; i <= 3; i++) { 
+ for (int j = 1; j <= 2; j++) { 
+ System.out.print(i + " " + j + " "); 
+ } 
+ System.out.println(); 
+ } 
+ } 
+} 
+// Guess the output of this nested loop. 
+
+i   j
+1   1  it print  1   1
+1   2  it print  1   2
+1   3  condition false comes out from (for j) loop
+2   1  it print  2   1
+2   2  it print  2   2
+2   3  condition false comes out from (for j) loop
+3   1  it print  3   1
+3   2  it print  3   2
+3   3  condition false comes out from (for j) loop
+4      condition false comes out from (for i) loop 
+
+final output is  3 1 3 2 
+
+
+
+
+
+
+
+Snippet 2: 
+public class DecrementingLoop { 
+ public static void main(String[] args) { 
+ int total = 0; 
+ for (int i = 5; i > 0; i--) { 
+ total += i; 
+ if (i == 3) continue; 
+ total -= 1; 
+ } 
+ System.out.println(total); 
+ } 
+} 
+// Guess the output of this loop. 
+
+i = 5
+total = 0 + 5 = 5.(total += i)
+total = 5 - 1 = 4.(total -= i)
+i = 4
+total = 4 + 4 = 8.(total += i)
+total = 8 - 1 = 7.(total -= i)
+i = 3
+total = 7 + 3 = 10.(total += i)
+ (loop skip due to continue)
+i = 2
+total = 10 + 2 = 12.(total += i)
+total = 12 - 1 = 11.(total -= i)
+i = 1 
+total = 11 + 1 = 12.(total += i)
+total = 12 - 1 = 11.(total -= i)
+i = 0 (condition break).
+ total = 11.
+
+
+
+
+
+
+
+
+Snippet 3: 
+public class WhileLoopBreak { 
+ public static void main(String[] args) { 
+ int count = 0; 
+ while (count < 5) { 
+ System.out.print(count + " "); 
+ count++; 
+ if (count == 3) break; 
+ } 
+ System.out.println(count); 
+ } 
+} 
+// Guess the output of this while loop. 
+
+count = 0   it prints 0
+count ++
+count = 1   it prints 1
+count ++
+count = 2   it prints 2
+count ++
+count = 3  
+ loop terminates bcz of if and break statement.
+output will be 0 1 2 3 (this 3 is the total count prints)
+
+
+
+
+
+
+
+
+Snippet 4: 
+public class DoWhileLoop { 
+ public static void main(String[] args) { 
+ int i = 1; 
+ do { 
+ System.out.print(i + " "); 
+ i++; 
+ } while (i < 5); 
+ System.out.println(i); 
+ } 
+} 
+// Guess the output of this do-while loop.
+
+i = 1 it prints 1
+i++
+i = 2 condition check here then it prints 2
+i++
+i = 3 condition check here then it prints 3
+i++
+i = 4 condition check here then it prints 4
+i++
+i = 5 condition breaks here
+and then the last SOP prints 5
+output will be 1 2 3 4 5
+
+
+
+
+ 
+Snippet 5: 
+public class ConditionalLoopOutput { 
+ public static void main(String[] args) { 
+ int num = 1; 
+ for (int i = 1; i <= 4; i++) { 
+ if (i % 2 == 0) { 
+ num += i; 
+ } else { 
+ num -= i; 
+ } 
+ } 
+ System.out.println(num); 
+ } 
+} 
+// Guess the output of this loop.
+
+num = 1
+i = 1
+if condition is false here then 
+num = 1 - 1 = 0
+num = 0
+i = 2
+if condition is true here then
+num = 0 + 2 = 2
+num = 2
+i = 3
+if condition is false here then
+num = 2 - 3 = - 1
+num = - 1
+i = 4
+if condition is true here then
+num -1 + 4 = 3
+num = 3
+i = 5 loop ends here
+ output will be 3.
+
+
+
+
+
+
+
+
+
+
+ 
+Snippet 6: 
+
+public class IncrementDecrement { 
+ public static void main(String[] args) { 
+ int x = 5; 
+ int y = ++x - x-- + --x + x++; 
+ System.out.println(y); 
+ } 
+} 
+// Guess the output of this code snippet. 
+x = 5
+++x = 6  (x = 6)
+x-- = 6  (x = 5)
+--x = 4  (x = 4)
+x++ = 4  (x = 5)
+hence y = 6 - 6 + 4 + 4 = 8
+
+
+
+
+
+
+Snippet 7: 
+
+public class NestedIncrement { 
+ public static void main(String[] args) { 
+ int a = 10; 
+ int b = 5; 
+ int result = ++a * b-- - --a + b++; 
+ System.out.println(result); 
+ } 
+} 
+// Guess the output of this code snippet.
+
+a = 10
+b = 5
+++a = 11   (a = 11)
+b-- = 5    (b = 4)
+--a = 10   (a = 10)
+b++ = 4    (b = 5)
+
+result  is 11 * 5 - 10 + 4 = 49
+
+
+
+
+
+
+ 
+Snippet 8: 
+public class LoopIncrement { 
+ public static void main(String[] args) { 
+ int count = 0; 
+ for (int i = 0; i < 4; i++) { 
+ count += i++ - ++i; 
+ } 
+ System.out.println(count); 
+ } 
+} 
+// Guess the output of this code snippet. 
+
+count = 0
+i = 0, i++ = 0 (i = 1), ++i = 2 (i = 2)
+count = 0 + 0 - 2 = -2
+i++ (of for loop) (i =3)
+ i++ = 3  (i = 4)  ++i = 5 (i = 5)
+count = -2 + 3 - 5 = 4
+output will be 4. 
+
+
+
+
+
+    SECTION 3: Lamborghini Exercise:
+
+
+
+1. Write a program to calculate the sum of the first 50 natural numbers. 
+
+public class SumOfNum {  
+        public static void main(String[] args) { 
+        int n = 50;
+        int sum = 0; 
+        for (int i = 0; i <= n; i++) {  
+        sum += i; 
+  }
+        System.out.println(sum);
+ } 
+} 
+
+OUTPUT:
+
+ C:\Users\Divyanshu Saini\Desktop\JP>java SumOfNum
+1275
+
+
+
+
+2. Write a program to compute the factorial of the number 10.
+
+
+public class FactOfNum {  
+        public static void main(String[] args) { 
+        int n = 10;
+        int fact = 1; 
+        for (int i = 1; i <= n; i++) {  
+        fact = fact*i; 
+  }
+        System.out.println(fact);
+ } 
+}
+
+OUTPUT :
+C:\Users\Divyanshu Saini\Desktop\JP>java FactOfNum
+3628800
+
+
+
+
+
+3. Write a program to print all multiples of 7 between 1 and 100.
+
+
+public class Multiples {  
+        public static void main(String[] args) { 
+        int n = 100; 
+        for (int i = 1; i <= n; i++) { 
+         if(i % 7 == 0) {
+         System.out.println(i);
+        
+   }         
+  }
+        
+ } 
+}
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP>java Multiples
+7
+14
+21
+28
+35
+42
+49
+56
+63
+70
+77
+84
+91
+98
+
+
+
+
+
+4. Write a program to reverse the digits of the number 1234. The output should be 4321
+
+
+
+public class ReverseNumber {  
+        public static void main(String[] args) { 
+        int n = 1234; 
+        int r = 0;
+        while(n != 0){
+       
+        int digit = n % 10;       // Get the last digit
+
+        r = r * 10 + digit;     // Build the reversed number
+
+        n /= 10;        // Remove the last digit from number
+    
+}
+        
+         System.out.println(r);
+         
+ } 
+}
+
+OUTPUT : 
+
+C:\Users\Divyanshu Saini\Desktop\JP>java ReverseNumber
+4321
+
+
+
+
+
+5. Write a program to print the Fibonacci sequence up to the number 21.
+
+
+
+/*public class FiboSeries {  
+        public static void main(String[] args) {  
+        int a = 0, b = 1, c;
+
+        for(int i = 0; i <=15; i++){
+         if (i == 0) {
+
+                System.out.print(a + " ");
+}
+         else if (i == 1) {
+
+                System.out.print(b + " ");
+}
+          else {
+                c = a + b; 
+                a = b;     
+                b = c;     
+                System.out.print(c + " ");
+         
+            }
+        }
+
+        System.out.println();
+    }
+}*/
+
+
+
+
+
+
+
+
+
+
+/*USING WHILE LOOP FOR UPTO 21*/
+
+
+public class FiboSeries {
+    public static void main(String[] args) {
+        int l = 21; 
+        int a = 0, b = 1;
+
+        if (l >= 0) {
+            System.out.print(a + " ");
+        }
+        if (l >= 1) {
+            System.out.print(b + " ");
+        }
+
+        while (true) {
+            int c = a + b;
+            if (c > l) {
+                break;
+            }
+            System.out.print(c + " ");
+            a = b;
+            b = c;
+        }
+
+        System.out.println();
+    }
+}
+
+OUTPUT : 
+
+C:\Users\Divyanshu Saini\Desktop\JP>javac FabSeries.java
+
+C:\Users\Divyanshu Saini\Desktop\JP>java FabSeries
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610
+
+C:\Users\Divyanshu Saini\Desktop\JP>javac FiboSeries.java
+
+C:\Users\Divyanshu Saini\Desktop\JP>java FiboSeries
+0 1 1 2 3 5 8 13 21
+
+
+
+
+
+6. Write a program to find and print the first 5 prime numbers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.Write a program to calculate the sum of the digits of the number 9876. The output should be 
+30 (9 + 8 + 7 + 6).
+
+
+
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        int number = 9876; 
+        int sum = 0;       
+        int digit;         
+
+        while (number > 0) {
+            digit = number % 10; 
+            sum += digit;      
+            number /= 10;       
+  }
+        System.out.println("The sum of the digits is " + sum);
+  }
+}
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP>java SumOfDigits
+The sum of the digits is 30.
+
+
+
+
+
+8. Write a program to count down from 10 to 0, printing each number.
+
+
+public class CountDown {
+    public static void main(String[] args) {
+        for(int i = 10; i >= 0; i --)   {
+		System.out.print( i+ " " );
+		}
+	}
+	}
+
+OUTPUT : 
+
+C:\Users\Divyanshu Saini\Desktop\JP>java CountDown
+10 9 8 7 6 5 4 3 2 1 0
+
+
+
+
+
+
+9. Write a program to find and print the largest digit in the number 4825.
+
+
+
+
+public class LargestDigit {
+    public static void main(String[] args) {
+	int n = 4825;
+    int largestDigit = 0;
+       
+        while (n > 0) {
+            int digit = n % 10; 
+            if (digit > largestDigit) {
+                largestDigit = digit;
+            }
+            n /= 10;
+        }
+        
+          System.out.println("Largest digit is: " + largestDigit);
+    }
+}
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP>java LargestDigit
+Largest digit is: 8
+
+
+
+
+
+
+10. Write a program to print all even numbers between 1 and 50.
+
+
+public class EvenNumbers {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 50; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i+ " ");
+            }
+        }
+    }
+}
+
+ OUTPUT : 
+
+C:\Users\Divyanshu Saini\Desktop\JP>java EvenNumbers
+2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50
+
+
+
+
+
+11. Write a Java program to demonstrate the use of both pre-increment and post-decrement operators in a single expression
+
+
+public class IncrementDecrementDemo {
+    public static void main(String[] args) {
+        int i = 5;
+        int j = 10;
+        
+        int result = ++i + j--;
+        
+        // Print the values and the result
+        System.out.println("After pre-incrementing i and post-decrementing j:");
+        System.out.println("Value of i: " + i); // i is incremented to 6
+        System.out.println("Value of j: " + j); // j is decremented to 9
+        System.out.println("Result of the expression (++i + j--): " + result); // 6 + 10 = 16
+    }
+}
+
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP>java IncrementDecrementDem
+o
+After pre-incrementing i and post-decrementing j:
+Value of i: 6
+Value of j: 9
+Result of the expression (++i + j--): 16
+
+
+
+
+
+
+12. Write a program to draw the following pattern: 
+***** 
+***** 
+***** 
+***** 
+***** 
+
+
+public class Pattern1{
+   public static void main(String [] args){
+     for(int i = 1; i<=5; i++){
+	   for(int j = 1; j <=5; j++){
+	   System.out.print("*");
+	   }
+	   System.out.println();
+	 }
+   
+   
+   }
+
+}
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern1
+*****
+*****
+*****
+*****
+*****
+
+
+
+
+
+
+13. Write a program to print the following pattern: 
+1 
+2*2 
+3*3*3 
+4*4*4*4 
+5*5*5*5*5 
+5*5*5*5*5 
+4*4*4*4 
+3*3*3 
+2*2 
+1 
+
+
+
+
+/*13. Write a program to print the following pattern: 
+1 
+2*2 
+3*3*3 
+4*4*4*4 
+5*5*5*5*5 
+5*5*5*5*5 
+4*4*4*4 
+3*3*3 
+2*2 
+1   */
+
+
+
+public class Pattern2{
+   public static void main(String [] args){
+      int n = 5;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                if (j > 1) {
+                    System.out.print("*");
+                }
+                System.out.print(i);
+            }
+            System.out.println();
+        
+		  if(i == 5){
+			  for( int y = 5; y >=0; y--){
+				 for (int z = 1; z <= y; z++) {
+                   if (z > 1) {
+                    System.out.print("*");
+                }
+                System.out.print(y);
+            }
+            System.out.println(); 
+			  }
+		  }
+		  
+		} 
+		  
+		  
+	 }
+}
+
+
+OUTPUT : 
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern2
+1
+2*2
+3*3*3
+4*4*4*4
+5*5*5*5*5
+5*5*5*5*5
+4*4*4*4
+3*3*3
+2*2
+1
+
+
+
+
+
+14. Write a program to print the following pattern: 
+ * 
+ ** 
+ *** 
+ ***** 
+ ******* 
+ *********
+
+
+public class Pattern3{
+   public static void main(String [] args){
+      int n = 9;
+        for (int i = 1; i <= n; i++) {
+			if(i > 2  && i % 2 ==0){
+					continue;
+				}
+            for (int j = 1; j <= i; j++) {
+				
+                    System.out.print("*");
+            }
+                System.out.println(   );
+        }
+	}
+}
+
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern3
+*
+**
+***
+*****
+*******
+*********
+
+
+
+
+
+15. Write a program to print the following pattern: 
+    * 
+   ** 
+  *** 
+ **** 
+*****
+
+
+public class Pattern4{
+   public static void main(String [] args){
+      int n = 5;
+        for (int i = 1; i <= n; i++) {
+			for(int j = n-i; j >=0; j--){
+				System.out.print(" ");
+			}
+            for (int k = 1; k <= i; k++) {
+				
+                    System.out.print("*");
+            }
+                System.out.println(   );
+        }
+	}
+}
+
+
+OUTPUT : 
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern4
+     *
+    **
+   ***
+  ****
+ *****
+
+
+
+
+
+
+16. Write a program to print the following pattern: 
+    * 
+   *** 
+  ***** 
+ ******* 
+*********
+
+
+
+public class Pattern5{
+   public static void main(String [] args){
+      int n = 5;
+        for (int i = 1; i <= n; i++) {
+			for(int j = n-i; j >=0; j--){
+				System.out.print(" ");
+			}
+			
+            for (int k = 0; k < ( 2 * i - 1 ); k++) {
+				
+                    System.out.print("*");
+            }
+                System.out.println(   );
+        }
+	}
+}
+
+
+OUTPUT : 
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern5
+     *
+    ***
+   *****
+  *******
+ *********
+
+
+
+
+
+
+
+
+17. Write a program to print the following pattern: 
+***** 
+**** 
+*** 
+** 
+* 
+
+
+public class Pattern6{
+   public static void main(String [] args){
+      int n = 5;
+        for (int i = 0; i <= 5; i++) {
+			
+            for (int j = 5; j > i; j--) {
+				
+                    System.out.print("*");
+            }
+                System.out.println(   );
+        }
+	}
+}
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern6
+*****
+****
+***
+**
+*
+
+
+
+
+
+
+18. Write a program to print the following pattern: 
+    * 
+   *** 
+  ***** 
+ ******* 
+  ***** 
+   *** 
+    * 
+
+
+ public class Pattern7{
+   public static void main(String [] args){
+      int n = 4;
+            for (int i = 1; i <= n; i++) {
+			for(int j = n-i; j >0; j--){
+				System.out.print(" ");
+			}
+			for (int k = 0; k < ( 2 * i - 1 ); k++) {
+				
+                    System.out.print("*");
+            }
+			
+                System.out.println(   );
+        
+		    if(i == 4){
+			for (int a = n-1; a > 0; a--) {
+			   for(int b = n-a; b > 0  ; b--){
+				 System.out.print(" ");
+			}
+			    for (int c = 0 ; c < ( 2 * a - 1 ); c++) {
+				
+                    System.out.print("*");
+            }
+			
+                System.out.println(   );
+        
+			  }
+			}
+        }
+	}
+ }
+
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern7
+   *
+  ***
+ *****
+*******
+ *****
+  ***
+   *
+
+
+
+
+
+19. Write a program to print the following pattern: 
+1 
+1*2 
+1*2*3 
+1*2*3*4 
+1*2*3*4*5 
+
+
+
+public class Pattern8{
+   public static void main(String [] args){
+      int n = 5;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                if (j > 1) {
+                    System.out.print("*");
+                }
+                System.out.print(j);
+            }
+            System.out.println();
+		
+        }  		
+    }
+}
+
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern8
+1
+1*2
+1*2*3
+1*2*3*4
+1*2*3*4*5
+
+
+
+
+
+20. Write a program to print the following pattern: 
+5 
+5*4 
+5*4*3 
+5*4*3*2 
+5*4*3*2*1
+
+
+public class Pattern9{
+   public static void main(String [] args){
+      int n = 5;
+        for (int i = 0; i < n; i++) {
+            for (int j = n; j > (n - i - 1); j--) {
+                if (j < 5 ) {
+                    System.out.print("*");
+                }
+                System.out.print(j);
+            }
+            System.out.println();
+		
+        }  		
+    }
+}
+
+
+OUTPUT : 
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern9
+5
+5*4
+5*4*3
+5*4*3*2
+5*4*3*2*1
+
+
+
+
+
+
+21. Write a program to print the following pattern: 
+1 
+1*3 
+1*3*5 
+1*3*5*7 
+1*3*5*7*9
+
+
+
+public class Pattern10{
+   public static void main(String [] args){
+      int n = 5;
+        for (int i = 1; i <= n; i++) {
+			
+			   
+            for (int j = 1; j <= i; j++) {
+			  
+                if (j > 1) {
+                    System.out.print("*");
+                }
+                System.out.print(j * 2 - 1);
+            }
+            System.out.println();
+        }
+    }  		
+ }
+
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern10
+1
+1*3
+1*3*5
+1*3*5*7
+1*3*5*7*9
+
+
+
+
+
+
+
+22. Write a program to print the following pattern: 
+********* 
+ ******* 
+  ***** 
+   *** 
+    * 
+   *** 
+  ***** 
+ ******* 
+*********
+
+
+
+ public class Pattern11{
+   public static void main(String [] args){
+      int n = 6;
+            
+             for (int a = n-1; a > 0; a--) {
+			   for(int b = n-a; b > 0  ; b--){
+				 System.out.print(" ");
+			}
+			    for (int c = 0 ; c < ( 2 * a - 1 ); c++) {
+				
+                    System.out.print("*");
+            }
+			
+                System.out.println(   );
+				
+		    if(a == 1){
+		        for (int i = 2; i < n; i++) {
+			for(int j = n-i; j >0; j--){
+				System.out.print(" ");
+			}
+			for (int k = 0; k < ( 2 * i - 1 ); k++) {
+				
+                    System.out.print("*");
+            }
+			
+                System.out.println(   );
+        
+			  }
+			}
+        }
+	}
+ }
+ 
+
+OUTPUT :
+
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern11
+ *********
+  *******
+   *****
+    ***
+     *
+    ***
+   *****
+  *******
+ *********
+
+
+
+
+
+
+
+23. Write a program to print the following pattern: 
+11111 
+22222 
+33333 
+44444 
+55555 
+
+
+
+
+public class Pattern12{
+   public static void main(String [] args){
+     for(int i = 1; i<=5; i++){
+	   for(int j = 1; j <=5; j++){
+	   System.out.print(i);
+	   }
+	   System.out.println();
+	 }
+   
+   
+   }
+
+}
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern12
+11111
+22222
+33333
+44444
+55555
+
+
+
+
+
+
+
+
+24. Write a program to print the following pattern: 
+1 
+22 
+333 
+4444 
+55555
+
+
+
+
+public class Pattern13{
+   public static void main(String [] args){
+      int n = 5;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+               
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+   }
+}
+
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern13
+1
+22
+333
+4444
+55555
+
+
+
+
+25. Write a program to print the following pattern: 
+1 
+12 
+123 
+1234 
+12345 
+
+
+
+  public class Pattern14{
+   public static void main(String [] args){
+      int n = 5;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+               
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+   }
+}
+
+OUTPUT :
+
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern14
+1
+12
+123
+1234
+12345
+
+
+
+
+
+
+26. Write a program to print the following pattern: 
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
+
+
+
+public class Pattern15{
+   public static void main(String [] args){
+      int n = 5;
+	  int number = 1;
+        for (int i = 1; i <= n; i++) {
+          for (int j = 1; j <= i; j++) {
+                
+                System.out.print(number + " ");
+				number++;
+            }
+            System.out.println();
+        }
+    }  		
+ }
+
+
+OUTPUT :
+
+C:\Users\Divyanshu Saini\Desktop\JP\Day3>java Pattern15
+1
+2 3
+4 5 6
+7 8 9 10
+11 12 13 14 15
+
+
+
+
+
+
+
+
+
+
