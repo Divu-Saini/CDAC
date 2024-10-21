@@ -1,0 +1,87 @@
+Assignment-7
+
+1) Write a query that counts all orders for October 3.
+Solution- select count(*) from Orders where Odate = '1990-10-03';
+
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.02 sec)
+
+
+2) Write a query that counts the number of different non-NULL city values in the 
+Customers table.
+Solution-  select count(*) from Customers where City is not Null;
+
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.00 sec)
+
+
+3) Write a query that selects each customer’s smallest order.
+Solution- select Cnum, min(amt) from Orders
+group by Cnum;
+
++------+----------+
+| Cnum | min(amt) |
++------+----------+
+| 2008 |    18.69 |
+| 2001 |   767.19 |
+| 2007 |  1900.10 |
+| 2003 |  5160.45 |
+| 2002 |  1713.23 |
+| 2004 |    75.75 |
+| 2006 |  4723.00 |
++------+----------+
+7 rows in set (0.01 sec)
+
+
+
+4) Write a query that selects the first customer, in alphabetical order, whose name 
+begins with G.
+Solution- select * from Customers where Cname like 'G%' Limit 1;
+
++------+----------+------+--------+------+
+| Cnum | Cname    | City | Rating | Snum |
++------+----------+------+--------+------+
+| 2002 | Giovanni | Rome |    200 | 1003 |
++------+----------+------+--------+------+
+1 row in set (0.01 sec)
+
+
+
+5) Write a query that selects the highest rating in each city.
+Solution- select City, max(Rating) from Customers
+    -> Group By City;
+
++----------+-------------+
+| City     | max(Rating) |
++----------+-------------+
+| London   |         100 |
+| Rome     |         200 |
+| San Jose |         300 |
+| Berline  |         300 |
++----------+-------------+
+4 rows in set (0.00 sec)
+
+
+
+6) Write a query that counts the number of salespeople registering orders for each 
+day. (If a salesperson has more than one order on a given day, he or she should be 
+counted only once.)
+Solution- select Odate, Count(Distinct Snum) from Orders
+    -> Group by Odate;
+
++------------+----------------------+
+| Odate      | count(distinct Snum) |
++------------+----------------------+
+| 1990-10-03 |                    5 |
+| 1990-10-04 |                    2 |
+| 1990-10-06 |                    2 |
++------------+----------------------+
+3 rows in set (0.01 sec)

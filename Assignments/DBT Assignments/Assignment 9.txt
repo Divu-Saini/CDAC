@@ -1,0 +1,77 @@
+Assignment- 9
+
+1) Write a query that lists each order number followed by the name of the customer 
+who made the order.
+Solution- select Onum, Cname from Orders, Customers
+    -> where Customers.Cnum = Orders.Cnum;
+
++------+----------+
+| Onum | Cname    |
++------+----------+
+| 3001 | Cisneros |
+| 3003 | Hoffman  |
+| 3002 | Pereira  |
+| 3005 | liu      |
+| 3006 | Cisneros |
+| 3009 | Giovanni |
+| 3007 | Grass    |
+| 3008 | Clemens  |
+| 3010 | Grass    |
+| 3011 | Clemens  |
++------+----------+
+
+
+2) Write a query that gives the names of both the salesperson and the customer for 
+each order along with the order number
+Solution-  select Salespeople.Sname, Customers.Cname, Orders.Onum from Customers, Orders, Salespeople
+    -> where Salespeople.Snum = Orders.Snum AND Customers.Cnum = Orders.Cnum AND Orders.Onum = Orders.Onum;
+
++---------+----------+------+
+| Sname   | Cname    | Onum |
++---------+----------+------+
+| Peel    | Hoffman  | 3003 |
+| Axelrod | Giovanni | 3009 |
+| Motika  | Giovanni | 3009 |
+| Serres  | liu      | 3005 |
+| Serres  | Grass    | 3007 |
+| Serres  | Grass    | 3010 |
+| Peel    | Clemens  | 3008 |
+| Peel    | Clemens  | 3011 |
+| Rifkin  | Pereira  | 3002 |
++---------+----------+------+
+
+
+3) Write a query that produces all customers serviced by salespeople with a 
+commission above 12%. Output the customer’s name, the salesperson’s name, 
+and the salesperson’s rate of commission.
+Solution- select Customers.Cname, Salespeople.Sname, Salespeople.Comm from Customers, Salespeople
+    ->  where Salespeople.Snum = Customers.Snum AND Salespeople.Comm > 0.12;
+
++---------+--------+------+
+| Cname   | Sname  | Comm |
++---------+--------+------+
+| liu     | Serres | 0.13 |
+| Grass   | Serres | 0.13 |
+| Pereira | Rifkin | 0.15 |
++---------+--------+------+
+3 rows in set (0.00 sec)
+
+
+4) Write a query that calculates the amount of the salesperson’s commission on each 
+order by a customer with a rating above 100
+Solution- select Orders.Amt, Customers.Cnum, (Orders.Amt * Salespeople.Comm) from Orders, Customers, Salespeople
+    -> where Customers.Cnum = Orders.Cnum AND Salespeople.Snum = Orders.Snum AND Customers.rating > 100;
+
++---------+------+---------------------------------+
+| Amt     | Cnum | (Orders.Amt * Salesperson.Comm) |
++---------+------+---------------------------------+
+| 1309.95 | 2004 |                          170.29 |
+|   75.75 | 2004 |                            9.85 |
+| 5160.45 | 2003 |                          670.86 |
+| 1713.23 | 2002 |                          188.46 |
+| 1713.23 | 2002 |                          171.32 |
++---------+------+---------------------------------+
+5 rows in set (0.00 sec)
+
+
+

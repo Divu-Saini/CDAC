@@ -1,0 +1,19 @@
+Assignment 4
+
+Question 1
+Sol :- 
+
+mysql> select onum,amt,odate from orders;
+
+Question 2
+Sol;-
+
+mysql> select * from orders where snum=1001;
+
+Question 3
+Sol:-
+
+mysql> select city,sname,snum,comm from salesperson;
+
+Question 4
+Sol:-

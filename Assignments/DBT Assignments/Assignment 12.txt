@@ -1,0 +1,20 @@
+Assignment- 12
+
+1) Write a query that selects all customers whose ratings are equal to or greater than 
+ANY of Serres’.
+Solution- select * from customers where rating >=any
+    -> (select rating from Customers where Snum = 1002);
+
+2) Write a query using ANY or ALL that will find all salespeople who have no 
+customers located in their city.
+Solution- select * from salespeople where city !=any
+    -> (select city from Customers where customers.snum = salespeople.snum);
+
+3) Write a query that selects all orders for amounts greater than any for the 
+customers in London.
+Solution- select * from Orders where amt >any
+    -> (select amt from Orders where Cnum IN(2001, 2006));
+
+4) Write the above query using MIN or MAX.
+Solution-  select max(amt) from Orders where amt >any
+    -> (select amt from Orders where Cnum IN(2001, 2006));

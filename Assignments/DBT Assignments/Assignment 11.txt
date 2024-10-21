@@ -1,0 +1,41 @@
+Assignment 11:
+
+
+1) Write a query that uses a subquery to obtain all orders for the customer named 
+Cisneros. Assume you do not know his customer number (cnum)
+
+Solution:  select onum from orders
+    -> where Cnum =
+    -> (select Cnum from customers where Cname = 'Cisneros');
++------+
+| onum |
++------+
+| 3001 |
+| 3006 |
++------+
+
+
+2) Write a query that produces the names and ratings of all customers who have above-average orders
+
+Solution: select Cname, rating from customers where Cnum IN
+    -> (select Cnum from orders where amt > (select avg(amt) from orders));
++---------+--------+
+| Cname   | rating |
++---------+--------+
+| liu     |    200 |
+| Clemens |    100 |
++---------+--------+
+
+
+3) Write a query that selects the total amount in orders for each salesperson for 
+whom this total is greater than the amount of the largest order in the table
+
+Solution: select Snum,Sum(amt) from orders
+    -> group by Snum
+    -> having sum(amt) > (select max(amt) from orders);
++------+----------+
+| Snum | Sum(amt) |
++------+----------+
+| 1001 | 15382.07 |
++------+----------+
+1 row in set (0.00 sec)
