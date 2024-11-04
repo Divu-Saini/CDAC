@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+
+}
+
+header {
+    background-color: rgba(7, 7, 7, 0.8);
+    color: #701fea;
+    padding: 10px 0;
+    
+    text-align: center;
+    border: 1px solid black;
+}
+
+.scrolling-text {
+    width: 75%;
+    background-color: #bed8e8;
+    color: #0e0e0e;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(85, 41, 232, 0.9);
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav li {
+    margin-right: 20px;
+    position: relative;
+}
+
+nav a {
+    color: #f5f9fa;
+    text-decoration: none;
+    text-shadow: -2px 2px 15px rgb(74, 17, 231);
+    padding: 8px;
+    font-size: 20px;
+}
+
+nav .dropdown {
+    display: none;
+    width: 210px;
+    position: absolute;
+    background-color: rgba(135, 163, 239, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    border: 2px solid rgb(16, 16, 16);
+}
+
+nav .dropdown a {
+    color: black;
+}
+
+nav li:hover .dropdown {
+    display: block;
+}
+
+nav .dropdown li {
+    margin: 2px 0;
+    padding: 2px;
+    text-align: left;
+    box-shadow: rgba(220, 79, 79, 0.8);
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-image: url("images/kk.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:  0px 2px px rgba(251, 251, 252, 0.9);
+   
+    
+
+}
+.form-box{
+    width: 90%;
+    max-width: 450px;
+    min-width: 350px;
+    background-color:rgba(24, 31, 31, 0.8);
+    padding: 55px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: -2px 2px 15px rgba(241, 241, 242, 0.9);
+    border: solid;
+   border-color: black;
+
+}
+.form-box h1{
+    font-size: 30px;
+    color: rgb(143, 130, 208);
+    text-shadow: -2px 2px 15px rgba(231, 231, 235, 0.5);
+}
+.form-box .underline{
+    width: 30px;
+    height: 4px;
+    background: rgb(143, 130, 208);
+    margin: 10px auto 50px auto;
+    border-radius: 5px;
+}
+.input-field{
+    background: #eaeaea;
+    margin: 30px 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: -2px 2px 15px rgba(243, 238, 238, 0.9);
+    border: solid;
+    border-width: 1px;
+}
+
+.input-field input{
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+    
+}
+
+.input-field i{
+    margin-left: 15px;
+    color:#999;
+}
+
+form p{
+    color: rgb(239, 235, 235);
+    text-align: left;
+    font-size: 13px;
+}
+
+form p a{
+    text-decoration: none;
+    color:  #1c27f1;
+}
+
+.btn-field{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-field button{
+    flex-basis: 48%;
+    background:  rgb(113, 66, 224);
+    color: white;
+    height: 35px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.input-group{
+    height: 280px;
+}
+
+button.disable{
+    background: #eaeaea;
+    color: #555;
+}
+button a{
+    text-decoration: none;
+    
+}
+button:hover {
+    text-shadow: none;
+    color: #e0e0e0; 
+    transform: scale(1.1); 
+    transition: transform 0.3s ease; 
+}

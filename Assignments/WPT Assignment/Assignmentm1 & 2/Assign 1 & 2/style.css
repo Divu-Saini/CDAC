@@ -1,0 +1,25 @@
+
+body{
+    background-color:darkgray;
+}
+h1{
+    color:rgb(9, 65, 8);
+   }
+   #head1{
+    color: rgb(47, 0, 255);
+   }
+   #head2{
+    color: rgb(222, 26, 26);
+   }
+   p{
+    font-size: 18px;
+    font-family: 'sans-serif';
+    font-style: italic;
+    font-weight: bold;
+    /*font-variant: small-caps;*/
+    text-transform: capitalize;
+   }
+   .green-font{
+    color: rgb(128, 0, 117);
+   }
+   

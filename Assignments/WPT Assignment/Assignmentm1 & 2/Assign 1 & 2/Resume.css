@@ -1,0 +1,86 @@
+body{
+    
+   background-color: rgb(194, 244, 244);
+}
+#main{
+   margin: auto;
+    width: 1000px;
+    height: auto;
+}
+.centre{
+    text-align: center;
+}
+
+#block1{
+    padding: 3px;
+    background: rgb(3, 41, 41);
+    color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    border-width: 4px;
+    border-bottom: 1px;
+    border-style: ridge;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#block2{
+    
+    padding-left: 350px;
+    text-align: centre;
+    
+}
+.img{
+   padding-left: 200px;
+    width: 150px;
+    height: 200px;
+}
+
+#summary{
+    padding: 3px;
+    background-color: rgb(98, 145, 145);
+    border-color: rgb(255, 255, 255);
+    border-width: 4px;
+    border-top: 0cap;
+    border-bottom: 1px;
+    border-style: ridge;
+}
+
+#Edu{
+    padding: 3px;
+    background-color: rgb(124, 173, 173);
+    border-color: rgb(255, 255, 255);
+    border-width: 4px;
+    border-top: 0cap;
+    border-bottom: 1px;
+    border-style: ridge;
+}
+
+#pro{
+    padding: 3px;
+    background-color: rgb(151, 200, 200);
+    border-color: rgb(255, 255, 255);
+    border-width: 4px;
+    border-top: 0cap;
+    border-bottom: 1px;
+    border-style: ridge;
+}
+
+#certi{
+    padding: 3px;
+    background-color: rgb(161, 215, 215);
+    border-color: rgb(255, 255, 255);
+    border-width: 4px;
+    border-top: 0cap;
+    border-bottom: 1px;
+    border-style: ridge;
+}
+
+#ach{
+    padding: 3px;
+    background-color: rgb(188, 250, 250);
+    border-color: rgb(255, 255, 255);
+    border-width: 4px;
+    border-top: 0cap;
+    
+    border-style: ridge;
+}
