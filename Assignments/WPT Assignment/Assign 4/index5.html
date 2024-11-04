@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fetchData(url, callback){
+            setTimeout(()=> {
+                const isError= false;
+                if(isError){
+                    callback("Error:Unable to fetch the data");
+                } else{
+                    const response = `Response from ${url}` ;
+                    callback(response);
+                }
+            },1500)
+        }
+
+        function processData(data, callback){
+            setTimeout(()=> {
+               const processedData = `${data} is processed`;
+               callback(processedData); 
+            },2000)
+        }
+
+        fetchData("https://www.google.com", function(error, response) {
+          if (error) {
+        console.log(error); 
+        } else {
+        processData(response, function(processedResult) {
+            console.log(processedResult); 
+        });
+    }
+});
+    </script>
+</body>
+</html>
